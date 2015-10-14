@@ -5,7 +5,7 @@ template <typename T>
 class Vector {
 public:
     Vector(): _datas(new T[START_CAPACITY]), _size(0), _capacity(START_CAPACITY) { }
-    Vector(size_t size): _datas(new T[size * 2], _size(size), _capacity(size * 2)) { }
+    Vector(size_t size): _datas(new T[size * 2 + 1], _size(size), _capacity(size * 2 + 1)) { }
 
     ~Vector() {
         delete[] _datas;
