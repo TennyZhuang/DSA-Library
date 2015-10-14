@@ -1,7 +1,5 @@
 #include "vector.h"
 
-const size_t DEFAULT_CAPACITY = 100;
-
 template <typename T>
 class Stack: public Vector<T> {
 public:
