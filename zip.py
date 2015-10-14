@@ -1,7 +1,7 @@
 import zipfile as zf
 import glob, os, time, re
 
-file_pat = re.compile(r'.+\.cpp|.+\h')
+file_pat = re.compile(r'.+\.cpp|.+\.h')
 
 zip_file = zf.ZipFile(os.getcwd().split('/')[-1] + '.zip', 'w')
 
