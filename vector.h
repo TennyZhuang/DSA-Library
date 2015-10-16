@@ -20,6 +20,10 @@ public:
         return _size;
     }
 
+    inline bool empty() const {
+        return _size == 0;
+    }
+
     // return vector capacity
     inline size_t capacity() const {
         return _capacity;
