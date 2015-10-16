@@ -1,3 +1,6 @@
+#ifndef QSORT_H
+#define QSORT_H
+
 template <typename T>
 inline void swap(T &a, T &b) {
     T t = b;
@@ -20,3 +23,5 @@ void qsort(T *A, int lo, int hi) {
     qsort(A, lo, m - 1);
     qsort(A, m + 1, hi);
 }
+
+#endif

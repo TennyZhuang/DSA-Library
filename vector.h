@@ -1,3 +1,6 @@
+#ifndef VECTOR_H
+#define VECTOR_H
+
 typedef unsigned long size_t;
 const size_t START_CAPACITY = 1000;
 
@@ -84,3 +87,5 @@ protected:
         delete[] oldDatas;
     }
 };
+
+#endif
