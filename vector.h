@@ -1,14 +1,14 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 
-typedef unsigned long size_t;
-const size_t START_CAPACITY = 1000;
+typedef unsigned long Rank;
+const Rank START_CAPACITY = 1000;
 
 template <typename T>
 class Vector {
 public:
     Vector(): _datas(new T[START_CAPACITY]), _size(0), _capacity(START_CAPACITY) { }
-    Vector(size_t size): _datas(new T[size * 2 + 1], _size(size), _capacity(size * 2 + 1)) { }
+    Vector(Rank size): _datas(new T[size * 2 + 1], _size(size), _capacity(size * 2 + 1)) { }
 
     ~Vector() {
         delete[] _datas;
@@ -19,7 +19,7 @@ public:
     }
 
     // return vector size
-    inline size_t size() const {
+    inline Rank size() const {
         return _size;
     }
 
@@ -28,7 +28,7 @@ public:
     }
 
     // return vector capacity
-    inline size_t capacity() const {
+    inline Rank capacity() const {
         return _capacity;
     }
 
@@ -49,10 +49,10 @@ public:
     }
 
     // insert an element at some position
-    void insert(T d, size_t pos) {
+    void insert(T d, Rank pos) {
         expand();
 
-        for (size_t i = ++_size; i > pos; i--) {
+        for (Rank i = ++_size; i > pos; i--) {
             _datas[i] = _datas[i - 1];
         }
 
@@ -62,15 +62,15 @@ public:
     // remove the elements in range [lo, hi)
     void remove(int lo, int hi) {
         _size -= (hi - lo);
-        for (size_t i = lo; i < _size; i++) {
+        for (Rank i = lo; i < _size; i++) {
             _datas[i] = _datas[i + (hi - lo)];
         }
     }
 
 protected:
     T* _datas;
-    size_t _size;
-    size_t _capacity;
+    Rank _size;
+    Rank _capacity;
 
     // expand the vector for hold more elements
     void expand() {
@@ -80,7 +80,7 @@ protected:
         T* oldDatas = _datas;
         _datas = new T[_capacity <<= 1];
 
-        for (size_t i = 0; i < _size; ++i) {
+        for (Rank i = 0; i < _size; ++i) {
             _datas[i] = oldDatas[i];
         }
 
